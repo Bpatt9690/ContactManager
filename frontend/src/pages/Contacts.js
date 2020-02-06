@@ -8,12 +8,13 @@ import cookie from 'js-cookie'
 
 //Get the id from the login token
 var id = cookie.get('token')
-console.log(id)
 if (id){
     id = JSON.parse(id).user.id
 }
 
 function Contacts() {
+
+    //Initial state for adding a contact.
     const INITIAL_CONTACT = {
         user: id,
         name: '',
@@ -23,6 +24,7 @@ function Contacts() {
         email: ''
     }
 
+    //React states for the Contact page
     const [contacts, setContacts] = React.useState([])
     const [contact, setContact] = React.useState(INITIAL_CONTACT)
     const [searchContact, setSearchContact] = React.useState("")

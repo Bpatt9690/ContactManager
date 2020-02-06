@@ -3,6 +3,8 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
 let User = require('../models/user.model');
 
+
+//Get user data based on id, leaving out the hashed password.
 Router.route('/').get((req, res) => {
     User.findbyId(req.user.id)
         .select('-password')

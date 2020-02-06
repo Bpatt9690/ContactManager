@@ -5,6 +5,8 @@ import axios from 'axios'
 
 
 function Contact(props) {
+
+    //Based state for contact
     const INITIAL_CONTACT = {
         user: props.contact.user,
         name: props.contact.name,
@@ -14,7 +16,7 @@ function Contact(props) {
         email: props.contact.email,
     }
 
-
+    //React states for the contact component
     const [contact, setContact] = React.useState(INITIAL_CONTACT) 
     const [loading, setLoading] = React.useState(false)
     const [error, setError] = React.useState('')
@@ -23,15 +25,17 @@ function Contact(props) {
     // "https://still-stream-56632.herokuapp.com/"  "http://localhost:3000/"
     const url = "http://localhost:3000/"
 
-
+    //Sets any change in the edit form to the contact variable
     function handleContactChange(event) {
         const { name, value } = event.target
         setContact(prevState => ({...prevState, [name]: value }) ) 
      }
 
+
+    //Function called on edit form submit
     async function handleEdit(event) {
         event.preventDefault();
-    
+        
         try {
             setLoading(true)
             const payload = {...contact}
@@ -46,6 +50,7 @@ function Contact(props) {
         }
     }
     
+    //Function called on delete confirmation
     async function handleDelete(event) {
         event.preventDefault();
     
@@ -60,6 +65,8 @@ function Contact(props) {
         }
     }
 
+    //Handles opening and closing the modal.  
+    //When the form is canceled, the state of contact is reset
     function closeModal() {
         handleOpen(!modalOpen)
         setContact(INITIAL_CONTACT)
