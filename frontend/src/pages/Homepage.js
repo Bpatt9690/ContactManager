@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import {Button,Container,Divider,Grid,Header,Icon,Image,List,Menu,Responsive,Segment,Sidebar,Visibility,} from 'semantic-ui-react'
-import Link from "next/link";
+import {Button,Container,Header,Icon,Menu,Responsive,Segment,Sidebar,Visibility,} from 'semantic-ui-react'
 
 const getWidth = () => {
   const isSSR = typeof window === 'undefined'
@@ -71,33 +70,6 @@ class DesktopContainer extends Component {
               secondary={!fixed}
               size='large'
             >
-
-              <Container>
-                <Menu.Item as='a' active>
-                  Home
-                </Menu.Item>
-
-                <Menu.Item as='a'>
-                <a href="/About">About</a>
-                </Menu.Item>
-              
-
-                
-                <Menu.Item position='right'>
-                  <Button as='a' inverted={!fixed} href="/Login">Login
-                  </Button> 
-                  </Menu.Item>
-              
-
-
-
-                  <Menu.Item>
-                  <Button as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }} href="/Signup">Signup
-                  
-                  
-                  </Button>
-                </Menu.Item>
-              </Container>
             </Menu>
             <HomepageHeading />
           </Segment>
