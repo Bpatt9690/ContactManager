@@ -93,6 +93,7 @@ function Login() {
     />
     <Form error={Boolean(error)} loading={loading} onSubmit={handleSubmit}> 
       <Message 
+        icon="frown outline"
         error
         header="Error!"
         content={error}
