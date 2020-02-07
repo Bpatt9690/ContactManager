@@ -21,6 +21,7 @@ function Contact(props) {
     const [loading, setLoading] = React.useState(false)
     const [error, setError] = React.useState('')
     const [modalOpen, handleOpen] = React.useState(false)
+    const [deleteModalOpen, handleDeleteModalOpen] = React.useState(false)
 
     // "https://still-stream-56632.herokuapp.com/"  "http://localhost:3000/"
     const url = "http://localhost:3000/"
@@ -72,6 +73,10 @@ function Contact(props) {
         setContact(INITIAL_CONTACT)
      }
 
+     function closeDeleteModal() {
+         handleDeleteModalOpen(!deleteModalOpen)
+     }
+
         return (
             <>
                 <List>
@@ -84,7 +89,7 @@ function Contact(props) {
                 <Modal 
                 trigger={<Button onClick={closeModal} floated="right" >Edit Contact</Button>} 
                 open={modalOpen}  
-                className="editContactFrom"          
+                style={{'right':'0'}}          
             >
                 <Segment>
                     <Header>Edit Contact</Header>
@@ -162,15 +167,20 @@ function Contact(props) {
                 </Modal>
 
                  <br /> <br />
-                <Modal trigger={<Button floated="right" >Delete Contact</Button>} closeIcon>
-                    <Header icon='archive' content='Archive Old Messages' />
+                <Modal 
+                    trigger={<Button onClick={closeDeleteModal} floated="right" >Delete Contact</Button>} 
+                    closeIcon 
+                    style={{'right':'0'}}
+                    open={deleteModalOpen}
+                >
+                    <Header icon='archive' content='Are You Sure?' />
                     <Modal.Content>
                     <p>
                         Are you sure you want to delete this contact?
                     </p>
                     </Modal.Content>
                     <Modal.Actions>
-                    <Button color='red' icon="remove" content="No"/>
+                    <Button color='red' icon="remove" content="No" onClick={closeDeleteModal} />
                     <Button color='green' icon="checkmark" content="Yes" onClick={handleDelete} />
                     </Modal.Actions>    
                 </Modal>
