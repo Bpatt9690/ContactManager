@@ -119,8 +119,7 @@ function Contacts() {
             <Modal 
                 trigger={<Button onClick={closeModal} floated="right" >Add Contact</Button>} 
                 open={modalOpen}  
-                className="createContactForm" 
-                style={{'right':'0'}}         
+                className="createContactForm"        
             >
                 <Segment>
                     <Header content={"Create Contact"} /> 
