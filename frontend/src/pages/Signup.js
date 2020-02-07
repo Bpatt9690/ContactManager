@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form, Icon, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Icon, Message, Segment, Container } from 'semantic-ui-react'
 import axios from 'axios'
 import cookie from "js-cookie"
 
@@ -76,7 +76,7 @@ function Signup() {
 
   return (
     <>
-    
+    <Container style={{'padding-top':'10px'}}>
     <Message 
       attached
       icon="settings"
@@ -149,6 +149,7 @@ function Signup() {
       Already a user?{" "}
       <a href="/login">Log in here</a>
     </Message>
+    </Container>
     </>
     )
 }

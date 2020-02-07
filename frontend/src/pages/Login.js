@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form, Icon, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Icon, Message, Segment, Container } from 'semantic-ui-react'
 import axios from 'axios'
 import cookie from "js-cookie"
 
@@ -83,7 +83,7 @@ function Login() {
 
   return (
     <>
-    
+    <Container style={{'padding-top':'10px'}}>
     <Message 
       attached
       icon="privacy"
@@ -93,7 +93,6 @@ function Login() {
     />
     <Form error={Boolean(error)} loading={loading} onSubmit={handleSubmit}> 
       <Message 
-        icon="frown outline"
         error
         header="Error!"
         content={error}
@@ -135,6 +134,7 @@ function Login() {
       New user?{" "}
       <a href="/signup">Sign up here</a>
     </Message>
+    </Container>
     </>
     )
 }
