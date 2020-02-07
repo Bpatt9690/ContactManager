@@ -1,10 +1,8 @@
 import React from 'react'
 import Contact from '../components/contact_component'
 import axios from 'axios'
-import { Button, Form, Modal, Segment, Message, Header } from 'semantic-ui-react'
+import { Button, Form, Modal, Segment, Message, Header, Container, List, Table } from 'semantic-ui-react'
 import cookie from 'js-cookie'
-
-
 
 //Get the id from the login token
 var id = cookie.get('token')
@@ -102,10 +100,12 @@ function Contacts() {
             setContacts( response.data)
         })
     }
+
         return (
             <>
             <link rel="stylesheet" href='Contacts.css' type="text/css" />
-            <div>
+
+            <Container style={{paddingTop: "10px"}}>
             <Form.Input 
                 float="left"
                 icon=""
@@ -116,7 +116,6 @@ function Contacts() {
                 onChange={handleSearchChange}
             />
             <Button content={"Search"} onClick={handleSearch} float="right" />
-            </div>
             <Modal 
                 trigger={<Button onClick={closeModal} floated="right" >Add Contact</Button>} 
                 open={modalOpen}  
@@ -197,13 +196,28 @@ function Contacts() {
                     </Form>
                 </Segment>
                 </Modal>
-            <div>
+                
+                
+                <Table class="ui celled selectable table">
+                <thead class="">
+                <tr class="">
+                <th class="">Name</th>
+                <th class="">Cell Phone</th>
+                <th class="">Home Phone</th>
+                <th class="">Work Phone</th>
+                <th class="">Email</th>
+                <th class=""></th>
+                <th class=""></th>
+                </tr>
+                </thead>
+                <tbody class="">
                 {contacts.map((contact) => { 
-                    return  <Contact key={contact._id} contact={contact} />                   
-                    }
-                    
+                        return <tr class=""><Contact key={contact._id} contact={contact} ></Contact></tr>                  
+                        }
                 )}
-            </div>
+                </tbody>
+                </Table>
+            </Container>
             </>
         )
 }

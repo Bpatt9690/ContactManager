@@ -3,7 +3,6 @@ import { List, Header, Form, Divider, Button, Modal, Icon, Segment } from 'seman
 import axios from 'axios'
 
 
-
 function Contact(props) {
 
     //Based state for contact
@@ -79,15 +78,16 @@ function Contact(props) {
 
         return (
             <>
-                <List>
-                    <Icon  name='address book' /> <p>Name: {props.contact.name} </p> 
-                    <Icon  name='phone' /> <p>Cell Phone: {props.contact.cellphone} </p> 
-                    <Icon  name='phone' /> <p>Home Phone: {props.contact.homephone} </p> 
-                    <Icon  name='phone' /> <p>Work Phone: {props.contact.workphone} </p> 
-                    <Icon  name='envelope' /> <p>Email: {props.contact.email} </p>
-                </List>
+                
+            <td class=""> {props.contact.name}      </td>
+            <td class=""> {props.contact.cellphone} </td>
+            <td class=""> {props.contact.homephone} </td>
+            <td class=""> {props.contact.workphone} </td>
+            <td class=""> {props.contact.email}     </td>
+            
+            <td class="">
                 <Modal 
-                trigger={<Button onClick={closeModal} floated="right" >Edit Contact</Button>} 
+                trigger={<Button onClick={closeModal}>Edit Contact</Button>} 
                 open={modalOpen}  
                          
             >
@@ -165,8 +165,9 @@ function Contact(props) {
                     </Form>
                 </Segment>
                 </Modal>
+                </td>
 
-                 <br /> <br />
+                <td class="">
                 <Modal 
                     trigger={<Button onClick={closeDeleteModal} floated="right" >Delete Contact</Button>}             
                     open={deleteModalOpen}
@@ -182,8 +183,7 @@ function Contact(props) {
                     <Button color='green' icon="checkmark" content="Yes" onClick={handleDelete} />
                     </Modal.Actions>    
                 </Modal>
-                <br /><br />
-                <Divider /> 
+                </td>
                   <div>
             </div>
             </>
