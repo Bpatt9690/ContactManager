@@ -51,15 +51,24 @@ function Navbar() {
         <Visibility
           once={false}
         >
-          <Segment inverted>
+          <Segment 
+            inverted
+            style={{
+                'padding-top':'0px',
+                'padding-bottom':'0px'
+            }}
+          >
             <Menu
               fixed={fixed ? 'top' : null}
               inverted={!fixed}
               pointing={!fixed}
               secondary={!fixed}
-              size='large'
+              size='Large'
             >
               <Container>
+                <Menu.Item as='h1'>
+                  ContactBoss
+                </Menu.Item>
                 <Menu.Item as='a' active href='/'>
                   Home
                 </Menu.Item>
