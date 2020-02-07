@@ -89,7 +89,7 @@ function Contact(props) {
                 <Modal 
                 trigger={<Button onClick={closeModal} floated="right" >Edit Contact</Button>} 
                 open={modalOpen}  
-                style={{'right':'0'}}          
+                         
             >
                 <Segment>
                     <Header>Edit Contact</Header>
@@ -168,9 +168,7 @@ function Contact(props) {
 
                  <br /> <br />
                 <Modal 
-                    trigger={<Button onClick={closeDeleteModal} floated="right" >Delete Contact</Button>} 
-                    closeIcon 
-                    style={{'right':'0'}}
+                    trigger={<Button onClick={closeDeleteModal} floated="right" >Delete Contact</Button>}             
                     open={deleteModalOpen}
                 >
                     <Header icon='archive' content='Are You Sure?' />
