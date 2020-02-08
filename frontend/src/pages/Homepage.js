@@ -1,12 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import {Button,Container,Header,Icon,Menu,Responsive,Segment,Sidebar,Visibility,} from 'semantic-ui-react'
+import {Button,Container,Header,Icon,Menu,Responsive,Segment,Visibility,} from 'semantic-ui-react'
 
-const getWidth = () => {
-  const isSSR = typeof window === 'undefined'
-
-  return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth
-}
 
 const HomepageHeading = ({ mobile }) => (
   <Container text>
@@ -104,18 +99,6 @@ const HomepageLayout = () => (
   <ResponsiveContainer>
 
     <Segment style={{ padding: '8em 0em' }} vertical>
-      <Container text>
-  
-      <Header as='h3' style={{ fontSize: '2em' }}><u>Capabilities</u></Header>
-      <p>
-      <Header as='h3' style={{ fontSize: '1em' }}>- Create contacts</Header>
-      <Header as='h3' style={{ fontSize: '1em' }}>- Delete contacts</Header>
-      <Header as='h3' style={{ fontSize: '1em' }}>- Search contacts</Header>
-      <Header as='h3' style={{ fontSize: '1em' }}>- Update contacts</Header>
-      </p>
-
-  
-      </Container>
     </Segment>
 
    

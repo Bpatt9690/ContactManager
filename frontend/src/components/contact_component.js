@@ -1,5 +1,5 @@
 import React from 'react'
-import { List, Header, Image, Dropdown, Form, Divider, Button, Modal, Icon, Segment } from 'semantic-ui-react'
+import { Header, Image, Form, Button, Modal, Segment } from 'semantic-ui-react'
 import axios from 'axios'
 
 
@@ -39,8 +39,10 @@ function Contact(props) {
         
         try {
             setLoading(true)
-            contact.picture ? contact.picture = contact.picture : contact.picture = 'https://www.pngkey.com/png/detail/115-1150152_default-profile-picture-avatar-png-green.png'
-            const payload = {...contact}
+            if (!contact.picture) { 
+                contact.picture = 'https://www.pngkey.com/png/detail/115-1150152_default-profile-picture-avatar-png-green.png'
+            }
+                const payload = {...contact}
             await axios.post(`${url}api/contacts/edit/${props.contact._id}`, payload)
             closeModal(true)
             setContact(INITIAL_CONTACT)
@@ -199,8 +201,6 @@ function Contact(props) {
                     </Modal.Actions>    
                 </Modal>
                 </td>
-                  <div>
-            </div>
             </>
 
         )

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Header, Button, Menu, Container, Segment, Visibility} from 'semantic-ui-react'
+import { Button, Menu, Container, Segment, Visibility} from 'semantic-ui-react'
 import cookie from 'js-cookie'
 
 var id = cookie.get('token')
@@ -14,12 +14,16 @@ function Navbar() {
 
     const [fixed] = React.useState(false)
 
+    const path = window.location.pathname
+
     function showContact() {
         if (!id) {
             return
         } else {
             return (
-                <Menu.Item as='a' href='/Contacts'>Contacts</Menu.Item>
+                <Menu.Item as='a' href='/Contacts' active={path === '/Contacts'}>
+                  Contacts
+                </Menu.Item>
             )
         }
     }
@@ -54,22 +58,22 @@ function Navbar() {
           <Segment 
             inverted
             style={{
-                'padding-top':'0px',
-                'padding-bottom':'0px'
+                'paddingTop':'0px',
+                'paddingBottom':'0px'
             }}
           >
             <Menu
               fixed={fixed ? 'top' : null}
               inverted={!fixed}
-              pointing={!fixed}
+              pointing
               secondary={!fixed}
-              size='Large'
+              size='large'
             >
               <Container>
                 <Menu.Item as='h1'>
                   ContactBoss
                 </Menu.Item>
-                <Menu.Item as='a' active href='/'>
+                <Menu.Item as='a' active={path === '/'} href='/'>
                   Home
                 </Menu.Item>
                 {showContact()}

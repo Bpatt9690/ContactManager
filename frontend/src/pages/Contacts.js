@@ -1,7 +1,7 @@
 import React from 'react'
 import Contact from '../components/contact_component'
 import axios from 'axios'
-import { Button, Form, Input, Modal, Image, Segment, Message, Header, Container, List, Table } from 'semantic-ui-react'
+import { Button, Form, Input, Modal, Segment, Message, Header, Container, Table } from 'semantic-ui-react'
 import cookie from 'js-cookie'
 
 //Get the id from the login token
@@ -83,7 +83,9 @@ function Contacts() {
 
         try {
             setLoading(true)
-            contact.picture ? contact.picture = contact.picture : contact.picture = 'https://www.pngkey.com/png/detail/115-1150152_default-profile-picture-avatar-png-green.png'
+            if (!contact.picture) { 
+                contact.picture = 'https://www.pngkey.com/png/detail/115-1150152_default-profile-picture-avatar-png-green.png'
+            }
             const payload = {...contact}
             await axios.post(`${url}api/contacts/add`, payload)
             setContact(INITIAL_CONTACT)
@@ -106,12 +108,10 @@ function Contacts() {
     }
 
         return (
-            <body>
-
             <Container style={{paddingTop: "10px"}}>
             <Input 
                 float="left"
-                icon=""
+                icon="search"
                 iconPosition="left"
                 placeholder="Search"
                 name="search"
@@ -234,7 +234,6 @@ function Contacts() {
                 </tbody>
                 </Table>
             </Container>
-            </body>
         )
 }
 
