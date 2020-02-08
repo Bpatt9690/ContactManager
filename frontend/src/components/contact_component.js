@@ -39,6 +39,7 @@ function Contact(props) {
         
         try {
             setLoading(true)
+            contact.picture ? contact.picture = contact.picture : contact.picture = 'https://www.pngkey.com/png/detail/115-1150152_default-profile-picture-avatar-png-green.png'
             const payload = {...contact}
             await axios.post(`${url}api/contacts/edit/${props.contact._id}`, payload)
             closeModal(true)
@@ -81,15 +82,15 @@ function Contact(props) {
 
         return (
             <>
-            <td class=""> <Image src={props.contact.picture} size='small' />      </td>
-            <td class=""> {props.contact.name}      </td>
-            <td class=""> {props.contact.cellphone} </td>
-            <td class=""> {props.contact.homephone} </td>
-            <td class=""> {props.contact.workphone} </td>
-            <td class=""> {props.contact.email}     </td>
+            <td className=""> <Image circular src={props.contact.picture} size='small' />      </td>
+            <td className=""> {props.contact.name}      </td>
+            <td className=""> {props.contact.cellphone} </td>
+            <td className=""> {props.contact.homephone} </td>
+            <td className=""> {props.contact.workphone} </td>
+            <td className=""> {props.contact.email}     </td>
 
             
-            <td class="">
+            <td className="">
                 <Modal 
                 trigger={<Button onClick={closeModal}>Edit Contact</Button>} 
                 open={modalOpen}  
@@ -181,7 +182,7 @@ function Contact(props) {
                 </Modal>
                 </td>
 
-                <td class="">
+                <td className="">
                 <Modal 
                     trigger={<Button onClick={closeDeleteModal} floated="left" >Delete Contact</Button>}             
                     open={deleteModalOpen}

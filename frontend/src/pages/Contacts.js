@@ -83,6 +83,7 @@ function Contacts() {
 
         try {
             setLoading(true)
+            contact.picture ? contact.picture = contact.picture : contact.picture = 'https://www.pngkey.com/png/detail/115-1150152_default-profile-picture-avatar-png-green.png'
             const payload = {...contact}
             await axios.post(`${url}api/contacts/add`, payload)
             setContact(INITIAL_CONTACT)
@@ -106,7 +107,6 @@ function Contacts() {
 
         return (
             <body>
-            <link rel="stylesheet" href='Contacts.css' type="text/css" />
 
             <Container style={{paddingTop: "10px"}}>
             <Input 
@@ -213,22 +213,22 @@ function Contacts() {
                 </Modal>
                 
                 
-                <Table class="ui celled selectable table">
-                <thead class="">
-                <tr class="">
-                <th class="">Pic</th>
-                <th class="">Name</th>
-                <th class="">Cell Phone</th>
-                <th class="">Home Phone</th>
-                <th class="">Work Phone</th>
-                <th class="">Email</th>
-                <th class=""></th>
-                <th class=""></th>
+                <Table className="ui celled selectable table">
+                <thead className="">
+                <tr className="">
+                <th className="">Pic</th>
+                <th className="">Name</th>
+                <th className="">Cell Phone</th>
+                <th className="">Home Phone</th>
+                <th className="">Work Phone</th>
+                <th className="">Email</th>
+                <th className=""></th>
+                <th className=""></th>
                 </tr>
                 </thead>
-                <tbody class="">
+                <tbody className="">
                 {contacts.map((contact) => { 
-                        return <tr class=""><Contact key={contact._id} contact={contact} ></Contact></tr>                  
+                        return <tr key={contact._id} className=""><Contact key={contact._id} contact={contact} ></Contact></tr>                  
                         }
                 )}
                 </tbody>
