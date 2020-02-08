@@ -1,5 +1,5 @@
 import React from 'react'
-import { List, Header, Form, Divider, Button, Modal, Icon, Segment } from 'semantic-ui-react'
+import { List, Header, Dropdown, Form, Divider, Button, Modal, Icon, Segment } from 'semantic-ui-react'
 import axios from 'axios'
 
 
@@ -21,7 +21,7 @@ function Contact(props) {
     const [error, setError] = React.useState('')
     const [modalOpen, handleOpen] = React.useState(false)
     const [deleteModalOpen, handleDeleteModalOpen] = React.useState(false)
-
+    
     // "https://still-stream-56632.herokuapp.com/"  "http://localhost:3000/"
     const url = "http://localhost:3000/"
 
@@ -76,9 +76,10 @@ function Contact(props) {
          handleDeleteModalOpen(!deleteModalOpen)
      }
 
+
+
         return (
             <>
-                
             <td class=""> {props.contact.name}      </td>
             <td class=""> {props.contact.cellphone} </td>
             <td class=""> {props.contact.homephone} </td>
@@ -169,7 +170,7 @@ function Contact(props) {
 
                 <td class="">
                 <Modal 
-                    trigger={<Button onClick={closeDeleteModal} floated="right" >Delete Contact</Button>}             
+                    trigger={<Button onClick={closeDeleteModal} floated="left" >Delete Contact</Button>}             
                     open={deleteModalOpen}
                 >
                     <Header icon='archive' content='Are You Sure?' />

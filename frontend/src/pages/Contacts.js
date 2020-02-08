@@ -1,7 +1,7 @@
 import React from 'react'
 import Contact from '../components/contact_component'
 import axios from 'axios'
-import { Button, Form, Modal, Segment, Message, Header, Container, List, Table } from 'semantic-ui-react'
+import { Button, Form, Input, Modal, Segment, Message, Header, Container, List, Table } from 'semantic-ui-react'
 import cookie from 'js-cookie'
 
 //Get the id from the login token
@@ -69,6 +69,7 @@ function Contacts() {
              setContacts([]);
          }
      }
+
     
      //Controls the state of the create contact modal
      function closeModal() {
@@ -93,6 +94,7 @@ function Contacts() {
         }
     }
 
+
     //If the page isn't being searched, get all the contacts instead
     if(!searchContact) {
     axios.get(`${url}api/contacts/?user=${id}`) 
@@ -102,11 +104,11 @@ function Contacts() {
     }
 
         return (
-            <>
+            <body>
             <link rel="stylesheet" href='Contacts.css' type="text/css" />
 
             <Container style={{paddingTop: "10px"}}>
-            <Form.Input 
+            <Input 
                 float="left"
                 icon=""
                 iconPosition="left"
@@ -115,7 +117,9 @@ function Contacts() {
                 value={searchContact.name}
                 onChange={handleSearchChange}
             />
-            <Button content={"Search"} onClick={handleSearch} float="right" />
+        
+            <Button style={{marginLeft: "10px"}} content={"Search"} onClick={handleSearch} float="right" />
+            
             <Modal 
                 trigger={<Button onClick={closeModal} floated="right" >Add Contact</Button>} 
                 open={modalOpen}  
@@ -217,7 +221,7 @@ function Contacts() {
                 </tbody>
                 </Table>
             </Container>
-            </>
+            </body>
         )
 }
 
