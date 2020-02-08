@@ -29,6 +29,10 @@ const contactSchema = new Schema({
         type: String,
     },
 
+    picture: {
+        type: String,
+    }
+
 });
 
 const Contact = mongoose.model('Contact', contactSchema);

@@ -1,5 +1,5 @@
 import React from 'react'
-import { List, Header, Dropdown, Form, Divider, Button, Modal, Icon, Segment } from 'semantic-ui-react'
+import { List, Header, Image, Dropdown, Form, Divider, Button, Modal, Icon, Segment } from 'semantic-ui-react'
 import axios from 'axios'
 
 
@@ -13,6 +13,7 @@ function Contact(props) {
         homephone: props.contact.homephone,
         workphone: props.contact.workphone,
         email: props.contact.email,
+        picture: props.contact.picture,
     }
 
     //React states for the contact component
@@ -80,11 +81,13 @@ function Contact(props) {
 
         return (
             <>
+            <td class=""> <Image src={props.contact.picture} size='small' />      </td>
             <td class=""> {props.contact.name}      </td>
             <td class=""> {props.contact.cellphone} </td>
             <td class=""> {props.contact.homephone} </td>
             <td class=""> {props.contact.workphone} </td>
             <td class=""> {props.contact.email}     </td>
+
             
             <td class="">
                 <Modal 
@@ -143,6 +146,16 @@ function Contact(props) {
                             placeholder="Email"
                             name="email"
                             value={contact.email}
+                            onChange={handleContactChange}
+                        />
+                        <Form.Input 
+                            fluid
+                            icon="picture"
+                            iconPosition="left"
+                            label="Picture (URL Address)"
+                            placeholder="Picture"
+                            name="picture"
+                            value={contact.picture}
                             onChange={handleContactChange}
                         />
                     

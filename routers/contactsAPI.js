@@ -19,6 +19,7 @@ Router.route('/add').post((req, res) => {
     const homephone = req.body.homephone;
     const workphone = req.body.workphone;
     const email = req.body.email;
+    const picture = req.body.picture;
 
     const newContact= new Contact({
         user,
@@ -26,7 +27,8 @@ Router.route('/add').post((req, res) => {
         cellphone,
         homephone,
         workphone,
-        email
+        email,
+        picture,
     });
 
     newContact.save()
@@ -53,6 +55,7 @@ Router.route('/edit/:id').post((req, res) => {
         contacts.homephone = req.body.homephone;
         contacts.workphone = req.body.workphone;
         contacts.email = req.body.email;
+        contacts.picture = req.body.picture;
 
         contacts.save()
             .then(() => res.json("Contact updated"))
@@ -78,7 +81,8 @@ Router.route('/search/all').get((req, res) => {
                    {homephone: {$regex:req.body.name, $options: 'i'}},
                    {cellphone: {$regex:req.body.name, $options: 'i'}},
                    {workphone: {$regex:req.body.name, $options: 'i'}},
-                   {email: {$regex:req.body.name, $options: 'i'}}]
+                   {email: {$regex:req.body.name, $options: 'i'}},
+                   {picture: {$regex:req.body.name, $options: 'i'}}]
                 })
 
     .then(contacts => res.json(contacts))

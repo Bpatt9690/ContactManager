@@ -1,7 +1,7 @@
 import React from 'react'
 import Contact from '../components/contact_component'
 import axios from 'axios'
-import { Button, Form, Input, Modal, Segment, Message, Header, Container, List, Table } from 'semantic-ui-react'
+import { Button, Form, Input, Modal, Image, Segment, Message, Header, Container, List, Table } from 'semantic-ui-react'
 import cookie from 'js-cookie'
 
 //Get the id from the login token
@@ -19,7 +19,8 @@ function Contacts() {
         cellphone: '',
         homephone: '',
         workphone: '',
-        email: ''
+        email: '',
+        picture: '',
     }
 
     //React states for the Contact page
@@ -179,6 +180,17 @@ function Contacts() {
                             value={contact.email}
                             onChange={handleContactChange}
                         />
+                        
+                        <Form.Input 
+                            fluid
+                            icon="picture"
+                            iconPosition="left"
+                            label="Picture (URL Address)"
+                            placeholder="Picture"
+                            name="picture"
+                            value={contact.picture}
+                            onChange={handleContactChange}
+                        />
                     
                         <Button
                             disabled={loading}
@@ -204,6 +216,7 @@ function Contacts() {
                 <Table class="ui celled selectable table">
                 <thead class="">
                 <tr class="">
+                <th class="">Pic</th>
                 <th class="">Name</th>
                 <th class="">Cell Phone</th>
                 <th class="">Home Phone</th>
