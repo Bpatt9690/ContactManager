@@ -13,7 +13,6 @@ var id = cookie.get('token')
 function App() {
   return (
     <>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
     <Navbar />
     <Router >
       <Switch>
