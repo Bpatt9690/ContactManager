@@ -64,6 +64,7 @@ function Contacts() {
              const payload = {user: id, name: searchContact.search}
              const response = await axios.post(`${url}api/contacts/search/`, payload)
              setContacts(response.data)
+             contacts.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1: -1)
          } catch (error) {
              console.error(error)
              setError(error)
@@ -105,6 +106,7 @@ function Contacts() {
        .then( response => {
             setContacts( response.data)
         })
+        contacts.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1: -1)
     }
 
         return (
@@ -214,21 +216,22 @@ function Contacts() {
                 
                 
                 <Table className="ui celled selectable table">
-                <thead className="" style={{'background-color':'#92a9d1'}} style={{'background-color':'#92a9d1'}}>
+                <thead className=""  style={{'background-color':'#92a9d1'}}>
                 <tr className="" style={{'background-color':'#92a9d1'}}>
-                <th className="" style={{'background-color':'#92a9d1'}} style={{'background-color':'#92a9d1'}}>Picture</th>
-                <th className="" style={{'background-color':'#92a9d1'}} style={{'background-color':'#92a9d1'}}>Name</th>
-                <th className="" style={{'background-color':'#92a9d1'}} style={{'background-color':'#92a9d1'}}>Cell Phone</th>
-                <th className="" style={{'background-color':'#92a9d1'}} style={{'background-color':'#92a9d1'}}>Home Phone</th>
-                <th className="" style={{'background-color':'#92a9d1'}} style={{'background-color':'#92a9d1'}}>Work Phone</th>
-                <th className="" style={{'background-color':'#92a9d1'}} style={{'background-color':'#92a9d1'}}>Email</th>
-                <th className="" style={{'background-color':'#92a9d1'}} style={{'background-color':'#92a9d1'}}></th>
-                <th className="" style={{'background-color':'#92a9d1'}} style={{'background-color':'#92a9d1'}}></th>
+                <th className="" style={{'background-color':'#92a9d1'}}>Picture</th>
+                <th className="" style={{'background-color':'#92a9d1'}}>Name</th>
+                <th className="" style={{'background-color':'#92a9d1'}} >Cell Phone</th>
+                <th className="" style={{'background-color':'#92a9d1'}} >Home Phone</th>
+                <th className="" style={{'background-color':'#92a9d1'}} >Work Phone</th>
+                <th className="" style={{'background-color':'#92a9d1'}} >Email</th>
+                <th className="" style={{'background-color':'#92a9d1'}} ></th>
+                <th className="" style={{'background-color':'#92a9d1'}} ></th>
                 </tr>
                 </thead>
                 <tbody className="" style={{'background-color':'#92a9d1'}}>
-                {contacts.map((contact) => { 
-                        return <tr key={contact._id} className="" style={{'background-color':'#92a9d1'}} style={{'background-color':'#92a9d1'}}><Contact key={contact._id} contact={contact} ></Contact></tr>                  
+                {
+                    contacts.map((contact) => { 
+                        return <tr key={contact._id} className="" style={{'background-color':'#92a9d1'}}><Contact key={contact._id} contact={contact} ></Contact></tr>                  
                         }
                 )}
                 </tbody>
