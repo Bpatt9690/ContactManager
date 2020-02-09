@@ -34,6 +34,7 @@ function Contacts() {
     
 
     // "https://still-stream-56632.herokuapp.com/"  "http://localhost:3000/"
+    // "http://localhost:3000/"  "http://localhost:3000/"
     const url = "http://localhost:3000/"
     
     
@@ -64,7 +65,6 @@ function Contacts() {
              const payload = {user: id, name: searchContact.search}
              const response = await axios.post(`${url}api/contacts/search/`, payload)
              setContacts(response.data)
-             contacts.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1: -1)
          } catch (error) {
              console.error(error)
              setError(error)
@@ -105,10 +105,9 @@ function Contacts() {
     axios.get(`${url}api/contacts/?user=${id}`) 
        .then( response => {
             setContacts( response.data)
-        })
-        contacts.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1: -1)
+        }) 
     }
-
+    contacts.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1: -1)
         return (
             <Container style={{paddingTop: "10px"}}>
             <Input 

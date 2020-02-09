@@ -55,13 +55,10 @@ function Contact(props) {
     }
     
     //Function called on delete confirmation
-    async function handleDelete(event) {
-        event.preventDefault();
-    
+    async function handleDelete() {
         try {
             setLoading(true)
             await axios.delete(`${url}api/contacts/${props.contact._id}`);
-            console.log(`user deleted`);
         } catch(error) {
             console.error(error)
         } finally {
