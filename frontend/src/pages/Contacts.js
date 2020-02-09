@@ -213,7 +213,7 @@ function Contacts() {
                 </Modal>
                 
                 
-                <Table className="ui celled selectable table">
+                <Table style={{'background-color':'#92a9d1'}} className="ui celled selectable table">
                 <thead className="" style={{'background-color':'#92a9d1'}} style={{'background-color':'#92a9d1'}}>
                 <tr className="" style={{'background-color':'#92a9d1'}}>
                 <th className="" style={{'background-color':'#92a9d1'}} style={{'background-color':'#92a9d1'}}>Picture</th>
