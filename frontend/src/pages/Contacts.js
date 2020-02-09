@@ -122,7 +122,7 @@ function Contacts() {
             <Button style={{marginLeft: "10px"}} content={"Search"} onClick={handleSearch} float="right" />
             
             <Modal 
-                trigger={<Button onClick={closeModal} floated="right" >Add Contact</Button>} 
+                trigger={<Button color='green' onClick={closeModal} floated="right" >Add Contact</Button>} 
                 open={modalOpen}  
                 className="createContactForm"        
             >

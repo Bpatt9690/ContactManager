@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, Image, Form, Button, Modal, Segment } from 'semantic-ui-react'
+import { Header, Image, Form, Button, Modal, Segment, Icon } from 'semantic-ui-react'
 import axios from 'axios'
 
 
@@ -94,7 +94,10 @@ function Contact(props) {
             
             <td className="">
                 <Modal 
-                trigger={<Button onClick={closeModal}>Edit Contact</Button>} 
+                trigger={<Button color='blue' animated='vertical' onClick={closeModal}>
+                        <Button.Content hidden><Icon name='pencil' /></Button.Content>
+                        <Button.Content visible>Edit Contact</Button.Content>
+                    </Button>} 
                 open={modalOpen}  
                          
             >
@@ -186,7 +189,10 @@ function Contact(props) {
 
                 <td className="">
                 <Modal 
-                    trigger={<Button onClick={closeDeleteModal} floated="left" >Delete Contact</Button>}             
+                    trigger={<Button color='red' animated='vertical' onClick={closeDeleteModal} floated="left" >
+                        <Button.Content hidden><Icon name='delete' /></Button.Content>
+                        <Button.Content visible>Delete Contact</Button.Content>
+                    </Button>}             
                     open={deleteModalOpen}
                 >
                     <Header icon='archive' content='Are You Sure?' />
