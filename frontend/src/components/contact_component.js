@@ -84,15 +84,15 @@ function Contact(props) {
 
         return (
             <>
-            <td className=""> <Image circular src={props.contact.picture} size='small' />      </td>
-            <td className=""> {props.contact.name}      </td>
-            <td className=""> {props.contact.cellphone} </td>
-            <td className=""> {props.contact.homephone} </td>
-            <td className=""> {props.contact.workphone} </td>
-            <td className=""> {props.contact.email}     </td>
+            <td className="" style={{'background-color':'#92a9d1'}}> <Image circular src={props.contact.picture} size='small' />      </td>
+            <td className="" style={{'background-color':'#92a9d1'}}> {props.contact.name}      </td>
+            <td className="" style={{'background-color':'#92a9d1'}}> {props.contact.cellphone} </td>
+            <td className="" style={{'background-color':'#92a9d1'}}> {props.contact.homephone} </td>
+            <td className="" style={{'background-color':'#92a9d1'}}> {props.contact.workphone} </td>
+            <td className="" style={{'background-color':'#92a9d1'}}> {props.contact.email}     </td>
 
             
-            <td className="">
+            <td className="" style={{'background-color':'#92a9d1'}}>
                 <Modal 
                 trigger={<Button color='blue' animated='vertical' onClick={closeModal}>
                         <Button.Content hidden><Icon name='pencil' /></Button.Content>
@@ -187,7 +187,7 @@ function Contact(props) {
                 </Modal>
                 </td>
 
-                <td className="">
+                <td className="" style={{'background-color':'#92a9d1'}}>
                 <Modal 
                     trigger={<Button color='red' animated='vertical' onClick={closeDeleteModal} floated="left" >
                         <Button.Content hidden><Icon name='delete' /></Button.Content>

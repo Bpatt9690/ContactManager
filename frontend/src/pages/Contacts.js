@@ -214,21 +214,21 @@ function Contacts() {
                 
                 
                 <Table className="ui celled selectable table">
-                <thead className="">
-                <tr className="">
-                <th className="">Pic</th>
-                <th className="">Name</th>
-                <th className="">Cell Phone</th>
-                <th className="">Home Phone</th>
-                <th className="">Work Phone</th>
-                <th className="">Email</th>
-                <th className=""></th>
-                <th className=""></th>
+                <thead className="" style={{'background-color':'#92a9d1'}} style={{'background-color':'#92a9d1'}}>
+                <tr className="" style={{'background-color':'#92a9d1'}}>
+                <th className="" style={{'background-color':'#92a9d1'}} style={{'background-color':'#92a9d1'}}>Picture</th>
+                <th className="" style={{'background-color':'#92a9d1'}} style={{'background-color':'#92a9d1'}}>Name</th>
+                <th className="" style={{'background-color':'#92a9d1'}} style={{'background-color':'#92a9d1'}}>Cell Phone</th>
+                <th className="" style={{'background-color':'#92a9d1'}} style={{'background-color':'#92a9d1'}}>Home Phone</th>
+                <th className="" style={{'background-color':'#92a9d1'}} style={{'background-color':'#92a9d1'}}>Work Phone</th>
+                <th className="" style={{'background-color':'#92a9d1'}} style={{'background-color':'#92a9d1'}}>Email</th>
+                <th className="" style={{'background-color':'#92a9d1'}} style={{'background-color':'#92a9d1'}}></th>
+                <th className="" style={{'background-color':'#92a9d1'}} style={{'background-color':'#92a9d1'}}></th>
                 </tr>
                 </thead>
-                <tbody className="">
+                <tbody className="" style={{'background-color':'#92a9d1'}}>
                 {contacts.map((contact) => { 
-                        return <tr key={contact._id} className=""><Contact key={contact._id} contact={contact} ></Contact></tr>                  
+                        return <tr key={contact._id} className="" style={{'background-color':'#92a9d1'}} style={{'background-color':'#92a9d1'}}><Contact key={contact._id} contact={contact} ></Contact></tr>                  
                         }
                 )}
                 </tbody>

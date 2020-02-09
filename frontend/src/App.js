@@ -10,6 +10,14 @@ import Navbar from './components/navbar_component'
 function App() {
   return (
     <>
+    <style>
+      {`
+        html, body {
+          background-color: #252839 !important
+        }
+
+      `}
+    </style>
     <Navbar />
     <Router >
       <Switch>
