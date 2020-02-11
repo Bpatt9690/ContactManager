@@ -1,5 +1,6 @@
 # ContactManagerDeploy
-Trying to learn how to deploy
 
+<<<<<<< HEAD
 
+>>>>>>> remotes/origin/Development
 Adjusted
